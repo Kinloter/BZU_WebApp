@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Webstore</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product.name }} - ${{ product.price }}
+                <form action="{{ url_for('buy', product_id=product.id) }}" method="post">
+                    <button type="submit">Buy</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
